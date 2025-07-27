@@ -96,3 +96,86 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Estructura de carpetas principal
+
+```
+auth-service/
+├── src/
+│   ├── app.controller.ts
+│   ├── app.controller.spec.ts
+│   ├── app.module.ts
+│   ├── app.service.ts
+│   ├── main.ts
+│   ├── seeder.ts
+│   ├── auth/
+│   │   ├── auth.controller.ts
+│   │   ├── auth.controller.spec.ts
+│   │   ├── auth.module.ts
+│   │   ├── auth.service.ts
+│   │   ├── auth.service.spec.ts
+│   │   └── dto/
+│   │       └── login.dto.ts
+│   └── users/
+│       ├── user.entity.ts
+│       ├── users.controller.ts
+│       ├── users.controller.spec.ts
+│       ├── users.module.ts
+│       ├── users.service.ts
+│       └── users.service.spec.ts
+├── test/
+│   └── app.e2e-spec.ts
+├── package.json
+├── README.md
+├── tsconfig.json
+└── ...otros archivos de configuración
+```
+
+## Probar el endpoint principal
+
+1. Inicia el servidor:
+
+```bash
+npm run start:dev
+```
+
+2. El endpoint principal estará disponible en:
+
+```
+GET http://localhost:3000/
+```
+
+Respuesta esperada:
+```
+Hello World!
+```
+
+## Documentación Swagger
+
+La documentación interactiva de la API está disponible en:
+
+```
+http://localhost:3000/api
+```
+
+Aquí puedes explorar y probar los endpoints disponibles.
+
+## Ejecutar pruebas unitarias
+
+Para ejecutar las pruebas unitarias:
+
+```bash
+npm run test
+```
+
+Para ver la cobertura de pruebas (en consola y reporte HTML):
+
+```bash
+npm run test:cov
+```
+
+Para ejecutar pruebas end-to-end:
+
+```bash
+npm run test:e2e
+```
