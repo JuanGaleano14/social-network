@@ -15,6 +15,7 @@ describe('AuthController', () => {
       controllers: [AuthController],
       providers: [{ provide: AuthService, useValue: mockAuthService }],
     }).compile();
+
     controller = module.get<AuthController>(AuthController);
     authService = module.get<AuthService>(AuthService);
   });
