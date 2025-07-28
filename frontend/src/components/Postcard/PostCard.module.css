@@ -1,0 +1,31 @@
+.card {
+    border: 1px solid #ececec;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem 1.2rem;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    transition: box-shadow 0.2s;
+}
+
+.card:hover {
+    box-shadow: 0 4px 24px 0 rgba(0,0,0,0.08);
+}
+
+.card button {
+    margin-top: 0.7rem;
+    padding: 0.6rem 1.1rem;
+    border: none;
+    border-radius: 7px;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.card button:hover {
+    background: #444;
+}

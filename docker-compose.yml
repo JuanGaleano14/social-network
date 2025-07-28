@@ -50,5 +50,16 @@ services:
         depends_on:
             - postgres
 
+    frontend:
+        build:
+            context: ./frontend
+        container_name: frontend
+        ports:
+            - "4173:4173"
+        depends_on:
+            - auth-service
+            - users-service
+            - posts-service
+
 volumes:
     pgdata:

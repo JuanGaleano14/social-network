@@ -6,6 +6,7 @@ import { GlobalExceptionFilter } from './global-exception.filter';
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalFilters(new GlobalExceptionFilter());
+  app.enableCors();
 
   const config = new DocumentBuilder()
     .setTitle('Social Network API')

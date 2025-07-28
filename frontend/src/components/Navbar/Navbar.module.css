@@ -1,0 +1,41 @@
+.navbar {
+    width: 100%;
+    background: #fff;
+    color: #222;
+    padding: 1.2rem 2rem;
+    text-align: center;
+    font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    box-shadow: 0 2px 12px 0 rgba(0,0,0,0.04);
+    border-bottom: 1px solid #ececec;
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbarContent {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logoutBtn {
+    padding: 0.5rem 1.2rem;
+    border: none;
+    border-radius: 7px;
+    background: #222;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.logoutBtn:hover {
+    background: #444;
+}

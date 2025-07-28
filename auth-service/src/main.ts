@@ -7,6 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe());
   app.useGlobalFilters(new GlobalExceptionFilter());
+  app.enableCors();
 
   // Configuración de Swagger
   const { SwaggerModule, DocumentBuilder } = await import('@nestjs/swagger');
