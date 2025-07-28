@@ -1,0 +1,54 @@
+version: "3.9"
+
+services:
+    postgres:
+        image: postgres:15
+        container_name: postgres
+        environment:
+            POSTGRES_USER: postgres
+            POSTGRES_PASSWORD: postgres
+            POSTGRES_DB: authdb
+        ports:
+            - "5432:5432"
+        volumes:
+            - pgdata:/var/lib/postgresql/data
+
+    auth-service:
+        build:
+            context: ./auth-service
+        container_name: auth-service
+        environment:
+            DATABASE_URL: postgres://postgres:postgres@postgres:5433/authdb
+            JWT_SECRET: e7acff5d1c1340e28a3c9fcf9b1f6e56a2c5d8fa3f2e3ba3e8b2323c78a9ed3a
+            JWT_EXPIRES_IN: 1d
+        ports:
+            - "3001:3000"
+        depends_on:
+            - postgres
+
+    users-service:
+        build:
+            context: ./users-service
+        container_name: users-service
+        environment:
+            DATABASE_URL: postgres://postgres:postgres@postgres:5433/authdb
+            JWT_SECRET: e7acff5d1c1340e28a3c9fcf9b1f6e56a2c5d8fa3f2e3ba3e8b2323c78a9ed3a
+        ports:
+            - "3002:3000"
+        depends_on:
+            - postgres
+
+    posts-service:
+        build:
+            context: ./posts-service
+        container_name: posts-service
+        environment:
+            DATABASE_URL: postgres://postgres:postgres@postgres:5433/authdb
+            JWT_SECRET: e7acff5d1c1340e28a3c9fcf9b1f6e56a2c5d8fa3f2e3ba3e8b2323c78a9ed3a
+        ports:
+            - "3003:3000"
+        depends_on:
+            - postgres
+
+volumes:
+    pgdata:
