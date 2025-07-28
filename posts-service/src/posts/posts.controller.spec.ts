@@ -78,4 +78,17 @@ describe('PostsController', () => {
       expect(likesService.removeLike).toHaveBeenCalledWith('1', 'user1');
     });
   });
+
+  describe('getLikesByPost', () => {
+    it('debería retornar los likes de un post', async () => {
+      const likes = [
+        { id: 1, post_id: '1', usuario_id: 'user1' },
+        { id: 2, post_id: '1', usuario_id: 'user2' },
+      ];
+      likesService.findByPost = jest.fn().mockResolvedValue(likes);
+      const result = await controller.getLikesByPost('1');
+      expect(result).toBe(likes);
+      expect(likesService.findByPost).toHaveBeenCalledWith('1');
+    });
+  });
 });

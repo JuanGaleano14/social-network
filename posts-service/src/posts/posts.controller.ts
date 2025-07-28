@@ -62,4 +62,13 @@ export class PostsController {
   removeLike(@Param('id') id: string, @Request() req) {
     return this.likesService.removeLike(id, req.user.userId);
   }
+
+  @ApiOperation({ summary: 'Listar likes de un post' })
+  @ApiParam({ name: 'id', description: 'ID del post' })
+  @ApiResponse({ status: 200, description: 'Lista de likes del post.' })
+  @UseGuards(AuthGuard('jwt'))
+  @Get(':id/likes')
+  async getLikesByPost(@Param('id') id: string) {
+    return this.likesService.findByPost(id);
+  }
 }

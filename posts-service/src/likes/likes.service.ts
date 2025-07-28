@@ -40,4 +40,8 @@ export class LikesService {
 
     await this.likesRepository.remove(like);
   }
+
+  async findByPost(post_id: string): Promise<Like[]> {
+    return this.likesRepository.find({ where: { post_id } });
+  }
 }
